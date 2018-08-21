@@ -4,8 +4,6 @@ var bodyParser = require("body-parser");
 
 var exphbs = require("express-handlebars");
 
-var orm = require("./config/orm.js");
-
 var app = express();
 
 app.use(express.static("public"));
