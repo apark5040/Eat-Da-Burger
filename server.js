@@ -1,8 +1,12 @@
 var express = require("express");
 
+var PORT = process.env.PORT || 3000;
+
 var bodyParser = require("body-parser");
 
 var exphbs = require("express-handlebars");
+
+var routes = require("./controllers/burgers_controller.js");
 
 var app = express();
 
@@ -14,15 +18,6 @@ app.set("view engine", "handlebars");
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-var PORT = process.env.PORT || 3000;
-
-
-
-
-// orm.insertOne("burgers", "burger_name", "devoured", "Bacon Burger", true);
-// orm.selectAll("burgers");
-
-var routes = require("./controllers/burgers_controller.js");
 
 app.use(routes);
 
