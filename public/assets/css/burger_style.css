@@ -1,14 +1,13 @@
-.burgerForm {
-    text-align: center;
-    margin-top: 100px;
-}
-
 .jumbotron {
     background-color: pink;
+    border: solid black 1px;
 }
 
 .burgerForm {
     background-color: pink;
     border-radius: 25px;
+    text-align: center;
+    margin-top: 100px;
+    border: solid black 2px;
 
 }
