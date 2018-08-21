@@ -8,6 +8,8 @@ var orm = require("./config/orm.js");
 
 var app = express();
 
+app.use(express.static("public"));
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
@@ -15,6 +17,9 @@ app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 var PORT = process.env.PORT || 3000;
+
+
+
 
 // orm.insertOne("burgers", "burger_name", "devoured", "Bacon Burger", true);
 // orm.selectAll("burgers");
