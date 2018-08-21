@@ -40,10 +40,8 @@
   <h2>Add a Burger</h2>
   <form class="create-form">
 
-    <div class="form-group">
-      <label for="burgerName">Burger Name:</label>
-      <input type="text" id="burgerName" name="name">
-    </div>
+    <label for="burgerName validationDefault01">Burger Name:</label>
+    <input type="text" id="burgerName validationDefault01" name="name" required/>
 
     <button type="submit" id="burgerBtn">Add Burger</button>
   </form>
@@ -56,25 +54,24 @@
 
     event.preventDefault();
 
-    var newBurger = {
-      burger_name: $("#burgerName").val(),
-      devoured: false
-    };
+      var newBurger = {
+        burger_name: $("#burgerName").val(),
+        devoured: false
+      };
 
-    $.post("/api/burgers", newBurger)
+      $.post("/api/burgers", newBurger)
 
-      .then(function (data) {
+        .then(function (data) {
 
-        console.log(data);
+          console.log(data);
 
-        alert("Added new burger");
+          location.reload();
 
-        location.reload();
+        });
 
-      });
   });
 
-  $(".devourBtn").on("click", function(event){
+  $(".devourBtn").on("click", function (event) {
     event.preventDefault();
 
     var devourBurger = $(this).val();
@@ -83,16 +80,16 @@
       devoured: true
     };
 
-    $.ajax("/api/burgers/"+devourBurger, {
+    $.ajax("/api/burgers/" + devourBurger, {
       type: "PUT",
       data: newDevour
     })
 
-    .then(function(){
-      console.log("Updated burger");
+      .then(function () {
+        console.log("Updated burger");
 
-      location.reload();
-    })
+        location.reload();
+      })
   });
 
 
